@@ -20,6 +20,13 @@ protected:
 	// called when Game Starts
 	virtual void BeginPlay() override;
 
+	virtual void Tick(float DeltaTime) override;
+
+private:
+	void AimTowardsCrossHair();
+
+	bool GetSightRayHitLocation(FVector &Hitlocation) const;
+
 public:
 	ATank* GetControlledTank() const;
 };
