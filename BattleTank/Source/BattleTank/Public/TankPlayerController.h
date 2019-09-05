@@ -13,8 +13,7 @@
 UCLASS()
 class BATTLETANK_API ATankPlayerController : public APlayerController
 {
-	GENERATED_BODY()
-	
+	GENERATED_BODY()	
 
 protected:
 	// called when Game Starts
@@ -25,7 +24,20 @@ protected:
 private:
 	void AimTowardsCrossHair();
 
-	bool GetSightRayHitLocation(FVector &Hitlocation) const;
+	bool GetSightRayHitLocation(FVector &HOutitlocation) const;
+
+	bool GetLookDirection(FVector2D ScreenLoation, FVector& LookDirection) const;
+
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
+	
+	UPROPERTY(EditAnywhere)
+	float LineTraceRange = 1000000;
+
+	UPROPERTY(EditAnywhere)
+	float CrossHairXLocation = 0.5;
+
+	UPROPERTY(EditAnywhere)
+	float CrossHairYLocation = 0.3333;
 
 public:
 	ATank* GetControlledTank() const;
