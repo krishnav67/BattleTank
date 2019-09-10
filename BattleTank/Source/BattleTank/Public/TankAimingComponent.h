@@ -20,7 +20,7 @@ private:
 	UStaticMeshComponent* Barrel = nullptr;
 
 public:	
-	void AimAt(FVector HitLocation);
+	void AimAt(FVector HitLocation, float LaunchSpeed);
 
 	// Sets default values for this component's properties
 	UTankAimingComponent();
