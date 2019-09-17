@@ -41,3 +41,8 @@ void ATank::AimAt(FVector HitLocation)
 {
 	TankAmingComponent->AimAt(HitLocation, LaunchSpeed);
 }
+
+void ATank::Fire()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Firing Method Executed"));
+}

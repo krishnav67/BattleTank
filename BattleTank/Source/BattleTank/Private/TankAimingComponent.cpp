@@ -26,10 +26,6 @@ void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 
 void UTankAimingComponent::SetTurretReference(UTankTurret* TurretToSet)
 {
-	if (!TurretToSet)
-	{
-		return;
-	}
 	Turret = TurretToSet;
 }
 
