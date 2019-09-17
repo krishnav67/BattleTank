@@ -19,11 +19,15 @@ void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)
 	TankAmingComponent->SetBarrelReference(BarrelToSet);
 }
 
+void ATank::SetTurretReference(UTankTurret* TurretToSet)
+{
+	TankAmingComponent->SetTurretReference(TurretToSet);
+}
+
 // Called when the game starts or when spawned
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 
@@ -31,7 +35,6 @@ void ATank::BeginPlay()
 void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
 }
 
 void ATank::AimAt(FVector HitLocation)
