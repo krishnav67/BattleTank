@@ -41,7 +41,7 @@ private:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, Category = Firing)
-	float LaunchSpeed = 9000;
+	float LaunchSpeed = 8000;
 
 	UPROPERTY(EditAnywhere, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBlueprint;
