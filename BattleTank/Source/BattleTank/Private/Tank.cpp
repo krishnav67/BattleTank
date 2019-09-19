@@ -1,8 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Public/Tank.h"
-#include "Public/TankAimingComponent.h"
+#include "Tank.h"
+#include "TankBarrel.h"
+#include "Projectile.h"
+#include "TankAimingComponent.h"
 
 // Sets default values
 ATank::ATank()
@@ -17,12 +19,19 @@ ATank::ATank()
 void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	TankAmingComponent->SetBarrelReference(BarrelToSet);
+	Barrel = BarrelToSet;
 }
 
 void ATank::SetTurretReference(UTankTurret* TurretToSet)
 {
 	TankAmingComponent->SetTurretReference(TurretToSet);
+	if (!Barrel)
+	{
+		return;
+	}
+	GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, Barrel->GetSocketLocation(FName("Projectile")), Barrel->GetSocketRotation(FName("Projectile")));
 }
+	
 
 // Called when the game starts or when spawned
 void ATank::BeginPlay()
