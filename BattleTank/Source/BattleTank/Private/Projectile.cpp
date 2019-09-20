@@ -30,6 +30,6 @@ void AProjectile::LaunchProjectile(float Speed)
 {
 	auto Time = GetWorld()->GetTimeSeconds();
 	UE_LOG(LogTemp, Warning, TEXT("%f: Firing at Speed : %f"), Time, Speed);
-	ProjectileMovement->SetVelocityInLocalSpace(FVector::ForwardVector* Speed);
+	ProjectileMovement->SetVelocityInLocalSpace(FVector::ForwardVector * Speed);
 	ProjectileMovement->Activate();
 }
