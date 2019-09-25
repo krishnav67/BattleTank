@@ -19,7 +19,16 @@ void UTankMovementComponent::IntendMoveForward(float Throw)
 	}
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(Throw);
+
 	// TODO prevent dual-speed due to dual control use
+}
+
+void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed)
+{
+	// No need to call Super as we are Replacing Functionality
+	auto TankName = GetOwner()->GetName();
+	auto MoveVelocityString = MoveVelocity.ToString();
+	UE_LOG(LogTemp, Warning, TEXT("%s vectoring to %s"),*TankName,*MoveVelocityString);
 }
 
 void UTankMovementComponent::IntendMoveRight(float Throw)

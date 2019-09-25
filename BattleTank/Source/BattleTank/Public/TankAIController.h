@@ -17,6 +17,10 @@ class BATTLETANK_API ATankAIController : public AAIController
 	GENERATED_BODY()
 	
 
+private:
+	// How close the AI Tank can get
+	float AcceptanceRadius = 3000;
+
 protected:
 	//call when game Starts
 	virtual void BeginPlay() override;
