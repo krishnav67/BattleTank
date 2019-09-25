@@ -19,17 +19,20 @@ void UTankMovementComponent::Initialise(UTankTrack* LeftTrackToSet, UTankTrack* 
 
 void UTankMovementComponent::IntendMoveForward(float Throw)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Move Forward Scalling : %f"), Throw);
-	
-	// Self Made Pointer Controller
 	if (!LeftTrack || !RightTrack)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Null value Found on LeftTrack and RightTrack"));
 		return;
 	}
-	else
+	LeftTrack->SetThrottle(Throw);
+	RightTrack->SetThrottle(Throw);
+}
+
+void UTankMovementComponent::IntendMoveRight(float Throw)
+{
+	if (!LeftTrack || !RightTrack)
 	{
-		LeftTrack->SetThrottle(Throw);
-		RightTrack->SetThrottle(Throw);
+		return;
 	}
+	LeftTrack->SetThrottle(-Throw);
+	RightTrack->SetThrottle(Throw);
 }
