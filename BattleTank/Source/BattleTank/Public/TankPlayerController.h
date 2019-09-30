@@ -19,6 +19,9 @@ protected:
 
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintCallable, Category=Setup)
+	ATank* GetControlledTank() const;
+
 private:
 	void AimTowardsCrossHair();
 
@@ -37,6 +40,5 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	float CrossHairYLocation = 0.3333;
 
-public:
-	ATank* GetControlledTank() const;
+
 };
