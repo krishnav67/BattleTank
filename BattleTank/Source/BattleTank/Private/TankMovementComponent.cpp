@@ -13,7 +13,7 @@ void UTankMovementComponent::Initialise(UTankTrack* LeftTrackToSet, UTankTrack* 
 
 void UTankMovementComponent::IntendMoveForward(float Throw)
 {
-	if (!LeftTrack || !RightTrack)
+	if (!ensure(LeftTrack && RightTrack))
 	{
 		return;
 	}
@@ -36,7 +36,7 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 
 void UTankMovementComponent::IntendMoveRight(float Throw)
 {
-	if (!LeftTrack || !RightTrack)
+	if (!ensure(LeftTrack && RightTrack))
 	{
 		return;
 	}
