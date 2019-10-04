@@ -23,12 +23,14 @@ public:
 
 protected:
 	UPROPERTY(BlueprintReadOnly)
-	UTankAimingComponent* TankAmingComponent = nullptr;
+	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:
 
 	// Sets default values for this pawn's properties
 	ATank();
+
+	virtual void BeginPlay() override;
 
 	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBlueprint;

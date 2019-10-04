@@ -13,10 +13,16 @@ ATank::ATank()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
+void ATank::BeginPlay()
+{
+	Super::BeginPlay(); // Needed for BP Begin Play to run!
+	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
+}
+
 void ATank::AimAt(FVector HitLocation)
 {
-	if (!ensure(TankAmingComponent)) { return; }
-	TankAmingComponent->AimAt(HitLocation, LaunchSpeed);
+	if (!ensure(TankAimingComponent)) { return; }
+	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
 void ATank::Fire()

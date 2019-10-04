@@ -36,7 +36,7 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 
 void UTankMovementComponent::IntendMoveRight(float Throw)
 {
-	if (!ensure(LeftTrack && RightTrack))
+	if (!ensure(LeftTrack) && !ensure(RightTrack))
 	{
 		return;
 	}
