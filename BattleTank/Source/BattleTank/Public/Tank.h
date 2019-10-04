@@ -6,8 +6,6 @@
 #include "Tank.generated.h"
 
 class UTankBarrel; //Forward Declaration
-class UTankTurret;
-class UTankAimingComponent;
 class AProjectile;
 
 UCLASS()
@@ -18,12 +16,6 @@ class BATTLETANK_API ATank : public APawn
 public:
 	UFUNCTION(BlueprintCallable)
 	void Fire();
-
-	void AimAt(FVector HitLocation);
-
-protected:
-	UPROPERTY(BlueprintReadOnly)
-	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:
 

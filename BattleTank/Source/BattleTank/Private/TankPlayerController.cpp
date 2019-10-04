@@ -1,14 +1,13 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Public/TankPlayerController.h"
+#include "TankPlayerController.h"
 #include "TankAimingComponent.h"
-#include "Public/Tank.h"
 
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	auto AimingComponent = GetControlledTank()->FindComponentByClass<UTankAimingComponent>();
+	auto AimingComponent = GetPawn()->FindComponentByClass<UTankAimingComponent>();
 	if (!ensure(AimingComponent))
 	{
 		return;
@@ -22,14 +21,10 @@ void ATankPlayerController::Tick(float DeltaTime)
 	AimTowardsCrossHair();
 }
 
-ATank* ATankPlayerController::GetControlledTank() const
-{
-	return Cast<ATank>(GetPawn());
-}
-
 void ATankPlayerController::AimTowardsCrossHair()
 {
-	if (!GetControlledTank())
+	auto AimingComponent = GetPawn()->FindComponentByClass<UTankAimingComponent>();
+	if (!ensure(AimingComponent))
 	{
 		return;
 	}
@@ -37,7 +32,7 @@ void ATankPlayerController::AimTowardsCrossHair()
 	FVector HitLocation; // Out Parameter
 	if (GetSightRayHitLocation(HitLocation)) // Has "side-effect", is going to line trace
 	{
-		GetControlledTank()->AimAt(HitLocation);
+		AimingComponent->AimAt(HitLocation);
 	}
 }
 
